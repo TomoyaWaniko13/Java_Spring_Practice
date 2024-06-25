@@ -65,8 +65,7 @@ public class Employee {
         this.email = email;
     }
 
-    // define toString
-
+    // define toString()
     @Override
     public String toString() {
         return "Employee{" +
