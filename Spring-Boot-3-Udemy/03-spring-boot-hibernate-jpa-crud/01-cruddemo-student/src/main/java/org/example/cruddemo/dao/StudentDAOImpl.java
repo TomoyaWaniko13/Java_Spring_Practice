@@ -11,7 +11,9 @@ import java.util.List;
 
 @Repository
 public class StudentDAOImpl implements StudentDAO {
+
     // define field for entity manager
+    // JPA Entity Manager and Data Source are automatically created by Spring Boot.
     private EntityManager entityManager;
 
     // inject entity manager using constructor injection
@@ -29,32 +31,19 @@ public class StudentDAOImpl implements StudentDAO {
 
     @Override
     public Student findById(Integer id) {
+        // Entity class, Primary key
         return entityManager.find(Student.class, id);
     }
 
-    // https://docs.oracle.com/javaee%2F7%2Fapi%2F%2F/javax/persistence/TypedQuery.html
     @Override
     public List<Student> findAll() {
         // create query
         TypedQuery<Student> theQuery = entityManager.createQuery("FROM Student order by lastName asc", Student.class);
-        // return query results
-        return theQuery.getResultList();
-    }
-
-    // https://docs.oracle.com/javaee%2F7%2Fapi%2F%2F/javax/persistence/TypedQuery.html
-    @Override
-    public List<Student> findByFirstName(String theFirstName) {
-        // create query
-        TypedQuery<Student> theQuery = entityManager.createQuery("FROM Student WHERE firstName=:theData", Student.class);
-
-        // set query parameters
-        theQuery.setParameter("theData", theFirstName);
 
         // return query results
         return theQuery.getResultList();
     }
 
-    // https://docs.oracle.com/javaee%2F7%2Fapi%2F%2F/javax/persistence/TypedQuery.html
     @Override
     public List<Student> findByLastName(String theLastName) {
         // create query
@@ -86,7 +75,7 @@ public class StudentDAOImpl implements StudentDAO {
     @Override
     @Transactional
     public int deleteAll() {
-        int numRowsDeleted = entityManager.createQuery("DELETE FROM Student").executeUpdate();
-        return numRowsDeleted;
+        int numsRowDeleted = entityManager.createQuery("DELETE FROM Student").executeUpdate();
+        return numsRowDeleted;
     }
 }

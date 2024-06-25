@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>org.example</groupId>
-    <artifactId>cruddemo</artifactId>
+    <artifactId>springcoredemo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>01-cruddemo-student</name>
-    <description>01-cruddemo-student</description>
+    <name>01-constructor-injection</name>
+    <description>01-constructor-injection</description>
     <url/>
     <licenses>
         <license/>
@@ -32,13 +32,14 @@
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>com.mysql</groupId>
-            <artifactId>mysql-connector-j</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
+            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

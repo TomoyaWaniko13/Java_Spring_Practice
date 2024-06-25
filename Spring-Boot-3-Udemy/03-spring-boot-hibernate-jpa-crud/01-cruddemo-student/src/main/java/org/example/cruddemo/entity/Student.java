@@ -2,6 +2,7 @@ package org.example.cruddemo.entity;
 
 import jakarta.persistence.*;
 
+
 @Entity
 @Table(name = "student")
 public class Student {
@@ -21,9 +22,7 @@ public class Student {
     private String email;
 
     // define constructors
-    public Student() {
-
-    }
+    public Student() {}
 
     public Student(String firstName, String lastName, String email) {
         this.firstName = firstName;
@@ -32,6 +31,7 @@ public class Student {
     }
 
     // define getters/setters
+
     public int getId() {
         return id;
     }
@@ -63,7 +63,6 @@ public class Student {
     public void setEmail(String email) {
         this.email = email;
     }
-
 
     // define toString() method
     @Override
